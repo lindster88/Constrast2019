@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://lightkeydialogue - Copy.gd" type="Script" id=1]
+[ext_resource path="res://bossdialogue.gd" type="Script" id=2]
+
+[node name="bossdialogue" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 4.54416
+margin_bottom = 4.54419
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 250.0
+margin_top = 549.0
+margin_right = 580.0
+margin_bottom = 653.0
+
+[node name="bossdialogue" type="RichTextLabel" parent="Panel"]
+margin_left = 4.9928
+margin_top = 26.9856
+margin_right = 308.993
+margin_bottom = 81.9856
+grow_horizontal = 0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+tab_size = 17
+text = "
+"
+script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="Panel"]
+wait_time = 0.05
+autostart = true
+[connection signal="bossplease" from="Panel/bossdialogue" to="." method="_on_bossdialogue_bossplease"]
+[connection signal="timeout" from="Panel/Timer" to="Panel/bossdialogue" method="_on_Timer_timeout"]
